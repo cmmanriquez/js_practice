@@ -9,7 +9,58 @@
 </head>
 
 <body>
+  <!-- lodash will copy the reference in deep levels -->
+  <script src="https://unpkg.com/lodash"></script>
   <script>
+    // this is an object
+    const camila = {
+      age: 34,
+      hair_color: 'brown',
+      clothing: {
+        tops: 10,
+        pants: 9,
+        skirts: 1,
+      },
+      work: 'web developer',
+    };
+    // I can change the value of the propertys
+    camila.age = 'latest 34';
+    console.log(camila);
+
+    // copy an object
+    const person1 = {
+      first: 'camila',
+      last: 'muñoz',
+      job: {
+        currently: 'freelancer',
+        dream_job: 'personal assistant',
+      }
+    };
+    const person2 = {
+      first: 'FRan',
+      last: 'Benchetrit',
+    }
+    // here is a REFERENCE, this would change BOTH
+    // const person3 = person1;
+    // spread operator(...)here is the copy, works ONLY in first level
+    // const person3 = { ...person1};
+    // person3.first = 'beba';
+
+    // Using lodash
+    const person3 = _.cloneDeep(person1);
+    person3.job.dream_job = 'Editor of Vogue';
+
+    // spread operator merging
+    const meatInventory = {
+      burgers : 3,
+      sausage: 2, 
+    };
+    const veggieInventory = {
+      lettucce: 5,
+      tomatoes: 2,
+    };
+
+    const inventory = {...meatInventory, ...veggieInventory};
 
   </script>
 </body>

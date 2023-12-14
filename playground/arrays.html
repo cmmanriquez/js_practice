@@ -11,7 +11,62 @@
 </head>
 
 <body>
+  <script>
+    // an array is used for holding a list of items where order matters
+    // arrays dont have a key, objects have it
+    const names = ['camila', 'FRan', 'Panda'];
+    function knowIfIsArray(question){
+      if (Array.isArray(names)){
+        console.log('im an array')
+      } else{
+        console.log('im not an array')
+      }
+    }
+    knowIfIsArray();
+    // Add items
+    names.push('Romeito', 'Negrito');
+    console.log(names);
 
+    // add items but keep it the original
+    const names2 = [...names, 'Orejita'];
+
+    const comments = [
+      {text: 'cool beans', id: 123},
+      {text: 'love this', id: 133},
+      {text: 'neato', id: 233},
+      {text: 'good bikes', id: 333},
+      {text: 'so good', id: 433},
+    ];
+
+    const deleteComment(id, comments){
+      // find the index of the item
+      const commentIndex = comments.findIndex(comment => comment.id === id);
+      //make a new array whitout that item
+      return[
+        ...comments.slice(0, commentIndex),
+        ...comments.slice(commentIndex + 1),
+      ];
+      // return our new array
+    }
+
+    // Some methods change the original data, in this case the reverse has change the original order in numbers
+    // mutation method
+    // const numbers = [1,2,3,4,5,6,7,8,9,];
+    // const numbersBackwards = numbers.reverse();
+    // console.log(numbersBackwards);
+
+    // inmutable methods
+    // const pizzaSlice = numbers.slice(2, 4);
+    // console.log(pizzaSlice);
+
+    // anytime you want to use a mutation method and NOT mutate the original
+    // const numbersReversed = [...numbers].reverse();
+    // console.log(numbersReversed);
+    // console.log(numbers);
+
+
+
+  </script>
 </body>
 
 </html>

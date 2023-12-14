@@ -13,6 +13,15 @@
     if (10 > 2) {
       console.log('Yep');
     }
+
+    function slugify(sentence, lowercase){
+      let slug = sentence.replace(/\s/g, '-')
+      if (lowercase){
+      return slug.toLowerCase();
+    }
+      return slug;
+    }
+
   </script>
 </body>
 
